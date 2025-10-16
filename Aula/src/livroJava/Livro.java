@@ -1,15 +1,16 @@
+package livroJava; 
 
 public class Livro {
-    String titulo;
-    String autor;
-    int anoPublicacao;
-    int quantPaginas;
+    private String titulo;
+    private String autor;
+    private int anoPublicacao;
+    private int quantPaginas;
 
     public Livro(String titulo, String autor, int anoPublicacao, int quantPaginas) {
-        this.titulo = "não definido";
-        this.autor = "não definido";
-        this.anoPublicacao = 0;
-        this.quantPaginas = 0;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anoPublicacao = anoPublicacao;
+        this.quantPaginas = quantPaginas;
     }
 
     public String getTitulo() {
@@ -47,9 +48,7 @@ public class Livro {
     }
 
     public void calcularTempoLeitura() {
-        double tempoPagina = 0.2;
-        double tempoLeitura = quantPaginas * tempoPagina;
-        System.out.println("O tempo de leitura do livro " + titulo + " é " + tempoLeitura + " minutos.");
+        System.out.println("O tempo de leitura do livro " + titulo + " é " + quantPaginas + " minutos.");
     }
 
     public void exibirInfo() {
