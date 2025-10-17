@@ -1,5 +1,6 @@
 package produtoJava;
 
+import java.util.Scanner;
 
 public class Produto {
     private String nome;
@@ -34,35 +35,58 @@ public class Produto {
     }
     public double getPrecoUnit() {
         return precoUnit;
-    }
-
-    public void setNome(String nome) {
-        if (nome != null && !nome.isEmpty()) {
-            this.nome = nome;
+    } 
+    public void setNome(Scanner teclado) { 
+        String novoNome = teclado.nextLine();
+        if (novoNome != null && !novoNome.isEmpty()) {
+            this.nome = novoNome;
         } else {
             System.out.println("nome inválido");
         }
     }
-    public void setCodigo(String codigo) {
-        if (codigo != null && !codigo.isEmpty()) {
-            this.codigo = nome;
+    public void setCodigo(Scanner teclado) { 
+        String novoCodigo = teclado.nextLine();
+        if (novoCodigo != null && !novoCodigo.isEmpty()) {
+            this.nome = novoCodigo;
+        } else {
+            System.out.println("nome inválido");
         }
     }
-    public void setQuant(int quant) {
-        this.quant = quant;
+    public void setQuant(Scanner teclado) {
+        int novaQuant = teclado.nextInt();
+        if (quant >= 0) { 
+            this.quant = quant + novaQuant;
+        } else {
+            System.out.println("Quantidade inválida.");
+        }
     }
-    public void setPrecoUnit(double precoUnit) {
-        this.precoUnit = precoUnit; 
+    public void setPrecoUnit(Scanner teclado) {
+        Double novoPreco = teclado.nextDouble();
+        if (precoUnit >= 0) { 
+            this.precoUnit = novoPreco;
+        } else {
+            System.out.println("Quantidade inválida.");
+        }
+    }
+    public void adicionarEstoque(int quant, Scanner teclado) {
+        int novaQuant = teclado.nextInt();
+        if (novaQuant >= 0){
+            quant = quant + novaQuant;
+            System.out.println(quant + "produto(s) " + nome + "foi(ram) adicionado(s) no estoque.");
+        } else {
+            System.out.println("Quantidade inválida.");
+        }
+        
     }
 
-    public void adicionarEstoque(int quant) {
-        quant++;
-        System.out.println("O produto " + nome + "foi adicionado em 1 no estoque.");
+    public void removerEstoque(int quant, Scanner teclado) {
+        int novaQuant = teclado.nextInt();
+        if (novaQuant <= 0){
+            quant = quant + novaQuant;
+            System.out.println(quant + "produto(s) " + nome + "foi(ram) removido(s) do estoque.");
+        } else {
+            System.out.println("Quantidade inválida.");
     }
 
-    public void removerEstoque(int quant) {
-        quant--;
-        System.out.println("O produto " + nome + "foi subtraído em 1 no estoque.");
-    }
-
+}
 }
