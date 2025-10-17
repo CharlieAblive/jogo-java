@@ -81,8 +81,8 @@ public class Produto {
 
     public void removerEstoque(int quant, Scanner teclado) {
         int novaQuant = teclado.nextInt();
-        if (novaQuant <= 0){
-            quant = quant + novaQuant;
+        if (novaQuant >= 0){
+            quant = quant - novaQuant;
             System.out.println(quant + "produto(s) " + nome + "foi(ram) removido(s) do estoque.");
         } else {
             System.out.println("Quantidade inválida.");

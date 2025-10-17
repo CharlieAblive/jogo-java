@@ -48,48 +48,53 @@ public class Atleta {
         }
     }
     public void setModalidade(Scanner teclado) { 
-        String novaModal = teclado.nextLine();
-        if (novaModal != null && !novaModal.isEmpty()) {
-            this.modalidade = novaModal;
-        } else {
-            System.out.println("Modalidade inválida");
-        }
-    }
-    public void setQuant(Scanner teclado) {
-        int novaQuant = teclado.nextInt();
-        if (quant >= 0) { 
-            this.quant = quant + novaQuant;
-        } else {
-            System.out.println("Quantidade inválida.");
-        }
-    }
-    public void setPrecoUnit(Scanner teclado) {
-        Double novoPreco = teclado.nextDouble();
-        if (precoUnit >= 0) { 
-            this.precoUnit = novoPreco;
-        } else {
-            System.out.println("Quantidade inválida.");
-        }
-    }
-    public void adicionarEstoque(int quant, Scanner teclado) {
-        int novaQuant = teclado.nextInt();
-        if (novaQuant >= 0){
-            quant = quant + novaQuant;
-            System.out.println(quant + "produto(s) " + nome + "foi(ram) adicionado(s) no estoque.");
-        } else {
-            System.out.println("Quantidade inválida.");
-        }
-        
+        String modalidade = "Corrida";
     }
 
-    public void removerEstoque(int quant, Scanner teclado) {
-        int novaQuant = teclado.nextInt();
-        if (novaQuant <= 0){
-            quant = quant + novaQuant;
-            System.out.println(quant + "produto(s) " + nome + "foi(ram) removido(s) do estoque.");
+    public void setIdade(Scanner teclado) {
+        int novaIdade = teclado.nextInt();
+        if (novaIdade >= 0) { 
+            this.idade = idade + novaIdade;
         } else {
-            System.out.println("Quantidade inválida.");
+            System.out.println("Valor inválido.");
+        }
+    }
+    public void setPesoKg(Scanner teclado) {
+        Double novoPeso = teclado.nextDouble();
+        if (novoPeso >= 0) { 
+            this.pesoKg = novoPeso;
+        } else {
+            System.out.println("Valor inválido.");
+        }
+    }
+    public void setAlturaM(Scanner teclado) {
+        Double novaAltura = teclado.nextDouble();
+        if (novaAltura >= 0) { 
+            this.alturaM = novaAltura;
+        } else {
+            System.out.println("Valor inválido.");
+        }
+    }
+    public void calcularIMC() {
+        double imc = pesoKg / alturaM * alturaM;
+        System.out.println("O imc do atleta " + nome + "é de " + imc);
     }
 
-}
+    public void classificCate() {
+        String categoria;
+        if (idade > 12) {
+            System.out.println("Não está apto para competir.");
+        } else if (idade == 12 || idade == 13){
+            categoria = "Sub-14";
+        } else if (idade == 14 || idade == 15){
+            categoria = "Sub-16";
+        } else if (idade >= 16 && idade <= 40){
+            categoria = "Adulto";
+        } else if (idade > 40){
+            categoria = "Master";   
+        } else {
+            System.out.println("Erro");
+        }
+    }
+
 }
