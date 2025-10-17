@@ -4,6 +4,7 @@ import atleta.Atleta;
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner teclado = new Scanner(System.in);
+        Scanner teclado2 = new Scanner(System.in);
         Atleta atleta1 = new Atleta();
         int opcao;
         do {
@@ -16,26 +17,34 @@ public class App {
             opcao = teclado.nextInt();
 
             if (opcao == 1) {
-                System.out.println("Informações do novo Atleta: ");
                 System.out.println("Nome: ");
-                produto.setNome(teclado);
+                atleta1.setNome(teclado2);
+                System.out.println("Idade: ");
+                atleta1.setIdade(teclado);
                 System.out.println("Modalidade: ");
-                produto.setCodigo(teclado);
-                System.out.println("Quantidade: ");
-                produto.setQuant(teclado);
-                System.out.println("Preço Unitário: ");
-                produto.setPrecoUnit(teclado);
+                atleta1.setModalidade(teclado2);
+                System.out.println("Peso(Kg): ");
+                atleta1.setPesoKg(teclado);
+                System.out.println("Altura(m) ");
+                atleta1.setAlturaM(teclado);
 
-                System.out.println("Produto cadastrado com sucesso.");
+                System.out.println("Atleta cadastrado com sucesso.");
             } else if (opcao == 2) {
-                System.out.print("Quantidade a ser adicionada: ");
-                produto.adicionarEstoque(0, teclado);
+                atleta1.calcularIMC();
             } else if (opcao == 3) {
-                System.out.print("Quantidade a ser removida: ");
-                produto.adicionarEstoque(0, teclado);
+                atleta1.classificCate();
             } else if (opcao == 4) {
-                int quanti = produto.getQuant();
-                System.out.println(quanti + "produtos no estoque.");
+                System.out.println("Novas informações Atleta: ");
+                System.out.println("Nome: ");
+                atleta1.setNome(teclado2);
+                System.out.println("Modalidade: ");
+                atleta1.setModalidade(teclado2);
+                System.out.println("Peso(Kg): ");
+                atleta1.setPesoKg(teclado);
+                System.out.println("Altura(m) ");
+                atleta1.setAlturaM(teclado);
+
+                System.out.println("Informações atualizadas com sucesso.");
             } else if (opcao == 5) {
                 break;
             } else {

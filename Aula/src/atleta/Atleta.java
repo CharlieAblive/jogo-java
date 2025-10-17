@@ -1,5 +1,4 @@
 package atleta;
-
 import java.util.Scanner;
 
 public class Atleta {
@@ -8,7 +7,8 @@ public class Atleta {
     private int idade;
     private double pesoKg;
     private double alturaM;
-
+    Scanner teclado = new Scanner(System.in);
+    Scanner teclado2 = new Scanner(System.in);
 
     public Atleta() {
         nome = "não definido";
@@ -40,7 +40,7 @@ public class Atleta {
         return pesoKg;
     } 
     public void setNome(Scanner teclado) { 
-        String novoNome = teclado.nextLine();
+        String novoNome = teclado2.nextLine();
         if (novoNome != null && !novoNome.isEmpty()) {
             this.nome = novoNome;
         } else {
@@ -48,7 +48,12 @@ public class Atleta {
         }
     }
     public void setModalidade(Scanner teclado) { 
-        String modalidade = "Corrida";
+        String novaModal = teclado2.nextLine();
+        if (novaModal != null && !novaModal.isEmpty()) {
+            this.modalidade = novaModal;
+        } else {
+            System.out.println("Modalidade inválida");
+        }
     }
 
     public void setIdade(Scanner teclado) {
@@ -81,8 +86,8 @@ public class Atleta {
     }
 
     public void classificCate() {
-        String categoria;
-        if (idade > 12) {
+        String categoria = "não definido";
+        if (idade < 12) {
             System.out.println("Não está apto para competir.");
         } else if (idade == 12 || idade == 13){
             categoria = "Sub-14";
@@ -95,6 +100,7 @@ public class Atleta {
         } else {
             System.out.println("Erro");
         }
+        System.out.println("A categoria do(a) atleta é " + categoria);
     }
 
 }
