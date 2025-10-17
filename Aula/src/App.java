@@ -1,50 +1,41 @@
 import java.util.Scanner;
-import atleta.Atleta;
+import veiculos.Veiculos;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner teclado = new Scanner(System.in);
         Scanner teclado2 = new Scanner(System.in);
-        Atleta atleta1 = new Atleta();
+        Veiculos veiculo1 = new Veiculos();
         int opcao;
         do {
-            System.out.println("= Gerenciamento Atletas =");
-            System.out.println("1- Cadastrar novo atleta");
-            System.out.println("2- Calcular IMC");
-            System.out.println("3- Verificar Categoria");
-            System.out.println("4- Atualizar informações");
+            System.out.println("= Gerenciamento de Veículos =");
+            System.out.println("1- Cadastrar novo veículo");
+            System.out.println("2- Atualizar quilometragem");
+            System.out.println("3- Calcular idade");
+            System.out.println("4- Exibir informações");
             System.out.println("5- Sair");
             opcao = teclado.nextInt();
 
             if (opcao == 1) {
-                System.out.println("Nome: ");
-                atleta1.setNome(teclado2);
-                System.out.println("Idade: ");
-                atleta1.setIdade(teclado);
-                System.out.println("Modalidade: ");
-                atleta1.setModalidade(teclado2);
-                System.out.println("Peso(Kg): ");
-                atleta1.setPesoKg(teclado);
-                System.out.println("Altura(m) ");
-                atleta1.setAlturaM(teclado);
+                System.out.println("Marca: ");
+                veiculo1.setMarca(teclado2);
+                System.out.println("Modelo: ");
+                veiculo1.setModelo(teclado);
+                System.out.println("Ano: ");
+                veiculo1.setAno(teclado2);
+                System.out.println("Quilom: ");
+                veiculo1.setQuilom(teclado);
 
-                System.out.println("Atleta cadastrado com sucesso.");
+                System.out.println("veículo cadastrado com sucesso.");
             } else if (opcao == 2) {
-                atleta1.calcularIMC();
+                veiculo1.atualizarQuilom(teclado);
             } else if (opcao == 3) {
-                atleta1.classificCate();
+                veiculo1.calcularIdadeVeiculo();
             } else if (opcao == 4) {
-                System.out.println("Novas informações Atleta: ");
-                System.out.println("Nome: ");
-                atleta1.setNome(teclado2);
-                System.out.println("Modalidade: ");
-                atleta1.setModalidade(teclado2);
-                System.out.println("Peso(Kg): ");
-                atleta1.setPesoKg(teclado);
-                System.out.println("Altura(m) ");
-                atleta1.setAlturaM(teclado);
-
-                System.out.println("Informações atualizadas com sucesso.");
+                System.out.println("Informações veículo: ");
+                System.out.println("Marca: " + veiculo1.getMarca());
+                System.out.println("Modelo: " + veiculo1.getModelo());
+                System.out.println("Quilometragem: " + veiculo1.getQuilom());
             } else if (opcao == 5) {
                 break;
             } else {

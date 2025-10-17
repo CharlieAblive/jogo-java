@@ -87,7 +87,7 @@ public class Atleta {
 
     public void classificCate() {
         String categoria = "não definido";
-        if (idade < 12) {
+        if (idade == 12) {
             System.out.println("Não está apto para competir.");
         } else if (idade == 12 || idade == 13){
             categoria = "Sub-14";
