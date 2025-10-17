@@ -1,5 +1,6 @@
 package produtoJava;
 
+
 public class Produto {
     private String nome;
     private String codigo;
@@ -52,6 +53,16 @@ public class Produto {
     }
     public void setPrecoUnit(double precoUnit) {
         this.precoUnit = precoUnit; 
+    }
+
+    public void adicionarEstoque(int quant) {
+        quant++;
+        System.out.println("O produto " + nome + "foi adicionado em 1 no estoque.");
+    }
+
+    public void removerEstoque(int quant) {
+        quant--;
+        System.out.println("O produto " + nome + "foi subtraído em 1 no estoque.");
     }
 
 }
