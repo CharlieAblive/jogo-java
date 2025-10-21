@@ -1,15 +1,11 @@
 package musicas;
-import java.util.Scanner;
 
 public  class Musicas {
-    private String nome;
-    private String artista;
-    private double duracao;
-    private String album;
-    private int ano;
-    Scanner teclado1 = new Scanner(System.in);
-    Scanner teclado2 = new Scanner(System.in);
-
+    private String nome = "não definido";
+    private String artista = "não definido";
+    private double duracao = 0.0;
+    private String album = "não definido";
+    private int ano = 0;
     //construtor
     public Musicas(String nome, String artista, double duracao, String album, int ano) {
         this.nome = nome;
@@ -19,7 +15,7 @@ public  class Musicas {
         this.ano = ano;
     }
 
-    public double getNome() {
+    public String getNome() {
         return nome;
     }
     
@@ -38,41 +34,29 @@ public  class Musicas {
     }    
 
     public void setNome(String nome) {
-        novoNome = teclado1.nextLine();
-        if (novoNome != null && !novoNome.isEmpty()) {
-            this.novoNome = nome;
-        } else {
-            System.out.println("");
-        }
+            this.nome = nome;
+
     }
     public void setArtista(String artista) {
-        novoArtista = teclado1.nextLine();
-        if (novoArtista != null && !novoArtista.isEmpty()) {
-            this.novoArtista = artista;
-        } else {
-            System.out.println("");
-        }
+            this.artista = artista;
+
     }
     public void setDuracao(double duracao) {
-        novaDuracao = teclado2.nextDouble();
-            this.novaDuracao = duracao;
+            this.duracao = duracao;
     }
 
     public void setAlbum(String album) {
-        novoAlbum = teclado1.nextLine();
-        if (novoAlbum != null && !novoAlbum.isEmpty()) {
-            this.novoAlbum = album;
-        } else {
-            System.out.println("");
-        }
+            this.album = album;
+
     }
     public void setAno(int Ano) {
-        novoAno = teclado2.nextInt();
-            this.novoAno = ano;
+            this.ano = ano;
     }
-}
 
-
-public class Rock extends Musicas {
-    puclic Rock(String nome, String artista)
+    public void tocarMusica() {
+        System.out.println("Agora está tocando " + nome + " do artista " + artista);
+    }
+    public void infoMusica() {
+        System.out.println("Música: " + nome + " de " + artista + " do álbum " + album + ", " + ano + ", com duração de " + duracao + " minutos.");
+    }
 }
